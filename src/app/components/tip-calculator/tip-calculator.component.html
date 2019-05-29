@@ -1,0 +1,38 @@
+<div class="row">
+  <label for="c2">Bill amount:</label>
+  <div class="input-group">
+    <span class="input-group-addon">$</span>
+    <input type="number"
+           #BillAmount
+           value="1000"
+           min="0"
+           step="0.01"
+           data-number-to-fixed="2"
+           data-number-stepfactor="100"
+           class="form-control currency"
+           id="c2" />
+  </div>
+</div>
+<div class="btn-group top-buffer">
+  <button (click)="setTipPercent(.10)"
+          class="btn btn-secondary tipBtn"
+          value="10">10%</button>
+  <button (click)="setTipPercent(.15)"
+          class="btn btn-secondary tipBtn"
+          value="15">15%</button>
+  <button (click)="setTipPercent(.20)"
+          class="btn btn-secondary tipBtn"
+          value="20">20%</button>
+</div>
+<div class="row">
+  Tip: {{ tipAmount | currency }}
+</div>
+<div class="row">
+  Total Bill: {{ totalBillAmount | currency }}
+</div>
+<div class="row">
+  <input type="button"
+         (click)="calculateTip(BillAmount)"
+         class="btn btn-danger"
+         value="Calculate Tip">
+</div>
