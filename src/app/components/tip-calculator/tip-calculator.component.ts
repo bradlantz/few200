@@ -6,23 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tip-calculator.component.css']
 })
 export class TipCalculatorComponent implements OnInit {
-  tipAmount: string;
-  totalBillAmount: string;
-  tipPct: number;
 
   constructor() { }
+
+
+  amount = 0;
+  tipPercent = .20;
+
+  updateAmount(amount: number) {
+
+    this.amount = amount;
+  }
 
   ngOnInit() {
   }
 
-  calculateTip(billAmount: HTMLInputElement) {
-    console.log(billAmount.valueAsNumber);
-    this.tipAmount = (billAmount.valueAsNumber * this.tipPct).toString();
-    this.totalBillAmount = (billAmount.valueAsNumber + Number(this.tipAmount)).toString();
-  }
-
-  setTipPercent(tipPercent: number) {
-    this.tipPct = tipPercent;
-    console.log(tipPercent);
+  setTipPercent(percent: number) {
+    this.tipPercent = percent;
   }
 }

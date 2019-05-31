@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TipCalculatorComponent } from './components/tip-calculator/tip-calculator.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { ShoppingComponent } from './features/shopping/shopping.component';
 
 const routes: Routes = [
   {
@@ -18,8 +20,16 @@ const routes: Routes = [
     component: TipCalculatorComponent
   },
   {
+    path: 'counter',
+    component: CounterComponent
+  },
+  {
+    path: 'shopping',
+    component: ShoppingComponent
+  },
+  {
     path: '**',
-    component: DashboardComponent
+    redirectTo: 'dashboard'
   }
 ];
 
